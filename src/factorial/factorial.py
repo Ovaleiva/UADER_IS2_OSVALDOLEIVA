@@ -33,3 +33,6 @@ else:
     rango = sys.argv[1]
 
 calcular_factoriales(rango)
+
+
+#Mi factorial favorito es el 10 porque nunca ganan.
