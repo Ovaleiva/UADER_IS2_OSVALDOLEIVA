@@ -12,9 +12,14 @@ def factorial(num):
             num -= 1
         return fact
 
-if len(sys.argv) == 1:
-    num = int(input("Por favor, ingrese un número para calcular su factorial: "))
-else:
-    num = int(sys.argv[1])
+def calcular_factoriales(rango):
+    desde, hasta = map(int, rango.split('-'))
+    for num in range(desde, hasta + 1):
+        print("El factorial de", num, "es", factorial(num))
 
-print("El factorial de", num, "es", factorial(num))
+if len(sys.argv) == 1:
+    rango = input("Por favor, ingrese el rango de números en formato 'desde-hasta': ")
+else:
+    rango = sys.argv[1]
+
+calcular_factoriales(rango)
