@@ -13,12 +13,22 @@ def factorial(num):
         return fact
 
 def calcular_factoriales(rango):
-    desde, hasta = map(int, rango.split('-'))
+    if '-' in rango:
+        desde, hasta = map(int, rango.split('-'))
+    else:
+        desde = 1 if rango.startswith('-') else int(rango)
+        hasta = 60 if rango.endswith('-') else int(rango)
+
+    if desde < 1:
+        desde = 1
+    if hasta > 60:
+        hasta = 60
+
     for num in range(desde, hasta + 1):
         print("El factorial de", num, "es", factorial(num))
 
 if len(sys.argv) == 1:
-    rango = input("Por favor, ingrese el rango de números en formato 'desde-hasta': ")
+    rango = input("Por favor, ingrese el rango de números en formato 'desde-hasta', '-hasta' o 'desde-': ")
 else:
     rango = sys.argv[1]
 
